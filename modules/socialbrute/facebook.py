@@ -62,8 +62,14 @@ def login():
                     print
                     sys.exit()
         else:
-                os.system('nano ~/saydog-framework/modules/socialbrute/login.txt')
-                menu()
+                tokenfb = raw_input('\033[34m[+] \033[00minput your token: ')
+                if tokenfb == '' or tokenfb == ' ':
+                        print
+                        sys.exit(1)
+                else:
+                        os.system('cat "'+tokenfb+'" > ~/saydog-framework/modules/socialbrute/login.txt')
+                        print '\033[34m[+] \033[00mTrying to login using token'
+                        menu()
     except KeyboardInterrupt:
         print
         sys.exit()
